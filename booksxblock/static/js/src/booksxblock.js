@@ -44,22 +44,15 @@ function BooksXBlock(runtime, element, initialQuestion) {
     }
 
     function checkAnswer(){
+      // TODO
+      // Please implement this function to check
+      // whether titles picked by student weren't indeed authored by the writer.
+      //
+      // If you wish, you can use areTwoStringArraysEqual e.g. to compare writtenByAuthor array
+      // with the one you'll create collecting user's answers.
 
-      selectedAnswers = [];
-
-      $('.bookxblock-answer-option', $element).each(function(index) {
-        chosenAnswer = $('.booksxblock-checkbox', this).prop('checked');
-
-        if(chosenAnswer==true){
-          selectedAnswers.push(
-            $('.booksxblock-answer-text', this).text()
-          )
-        }
-      })
-
-      wasAnswerCorrect = areTwoStringArraysEqual(notWrittenByAuthor, selectedAnswers);
-      $('.answer-message', $element).text(wasAnswerCorrect).show();
-
+      message = 'That is correct, nobody really knows what was written and what was not by ' + author + '.'
+      $('.answer-message', element).text(message).show()
     }
 
     function areTwoStringArraysEqual(firstArray, secondArray){

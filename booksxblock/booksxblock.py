@@ -27,9 +27,9 @@ class BooksXBlock(XBlock):
         Generates new question for the learner e.g.
 
         {
-            'author': 'William Shakespeare'
+            'author': 'William Shakespeare',
             'written_by_author': ['Hamlet', 'Macbeth'],
-            'not_written_by_author': ['Harry Potter and the Half-Blood Prince', 'War and Peace']
+            'not_written_by_author': ['Harry Potter and the Half-Blood Prince', 'War and Peace'],
             'shuffled_titles': ['War and Peace', 'Macbeth', 'Hamlet', 'Harry Potter and the Half-Blood Prince']
         }
 
@@ -37,30 +37,19 @@ class BooksXBlock(XBlock):
         has to be equal to 4.
         """
 
-        how_many_authored = random.randint(1, 3)
-        how_many_not_authored = 4 - how_many_authored
+        """
+        TODO
+        Please implement this function - it needs to generate new question
+        every time it's called using data from authors.py file.
 
-        random.shuffle(AUTHORS)
-
-        chosen_author, works_of_author = AUTHORS[0]
-
-        random.shuffle(works_of_author)
-        written_by_author = works_of_author[:how_many_authored]
-
-        works_of_others = list(
-            chain.from_iterable([works for author, works in AUTHORS[1:]])
-        )
-        random.shuffle(works_of_others)
-        not_written_by_author = works_of_others[:how_many_not_authored]
-
-        all_answers = list(chain(written_by_author, not_written_by_author))
-        random.shuffle(all_answers)
+        A Python package called `random` might come in handy (e.g. `random.shuffle`).
+        """
 
         question = {
-            'author': chosen_author,
-            'written_by_author': written_by_author,
-            'not_written_by_author': not_written_by_author,
-            'shuffled_titles': all_answers
+            'author': 'William Shakespeare',
+            'written_by_author': ['Hamlet', 'Macbeth'],
+            'not_written_by_author': ['Harry Potter and the Half-Blood Prince', 'War and Peace'],
+            'shuffled_titles': ['War and Peace', 'Macbeth', 'Hamlet', 'Harry Potter and the Half-Blood Prince']
         }
 
         self.question = question
