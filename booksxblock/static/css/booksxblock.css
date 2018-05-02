@@ -1,13 +1,5 @@
 /* CSS for BooksXBlock */
 
-.booksxblock_block .count {
-    font-weight: bold;
-}
-
-.booksxblock_block p {
-    cursor: pointer;
-}
-
 .bookxblock-answers-list {
   list-style-type: none;
 }

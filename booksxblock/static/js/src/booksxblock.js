@@ -43,11 +43,6 @@ function BooksXBlock(runtime, element, initialQuestion) {
       })
     }
 
-    // function checkAnswer(){
-    //   message = 'That is correct, ' + author + ' wrote everything in the world.'
-    //   $('.answer-message', element).text(message).show()
-    // }
-
     function checkAnswer(){
 
       selectedAnswers = [];

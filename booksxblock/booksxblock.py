@@ -26,9 +26,12 @@ class BooksXBlock(XBlock):
         """
         Generates new question for the learner e.g.
 
-        {'author': 'William Shakespeare'
-        'written_by_author': ['Hamlet', 'Macbeth'],
-        'not_written_by_author': ['Harry Potter and the Half-Blood Prince', 'War and Peace']}
+        {
+            'author': 'William Shakespeare'
+            'written_by_author': ['Hamlet', 'Macbeth'],
+            'not_written_by_author': ['Harry Potter and the Half-Blood Prince', 'War and Peace']
+            'shuffled_titles': ['War and Peace', 'Macbeth', 'Hamlet', 'Harry Potter and the Half-Blood Prince']
+        }
 
         The total count of books included in written_by_author and in not_written_by_author lists
         has to be equal to 4.
@@ -64,7 +67,9 @@ class BooksXBlock(XBlock):
 
 
     def resource_string(self, path):
-        """Handy helper for getting resources from our kit."""
+        """
+        Handy helper for getting resources from our kit.
+        """
         data = pkg_resources.resource_string(__name__, path)
         return data.decode("utf8")
 
@@ -89,7 +94,7 @@ class BooksXBlock(XBlock):
     @XBlock.json_handler
     def get_new_question(self, data, suffix=''):
         """
-        A handler to provide new question to front-end.
+        A handler for a front-end request to generate new question.
         """
         self.prepare_new_question()
         return self.question
